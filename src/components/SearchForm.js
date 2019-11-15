@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from "react";
 
-// export default function SearchForm() {
-
 function SearchForm(props) {
-  const [searchTerm, setSearchTerm] = useState();
+
+  //This is what destructuring props, or any object looks like. Very handy.
+  //Basically, down on lines 19-22, destructuring lets us use `characters` instead of `props.characters`
+  //along with `search()` instead of `props.search()`. It shorthands objects, effectively.
+
+  const { characters, search } = props;
+
+  //And yes, it works on methods.
 
   const handleChange = event => {
-    setSearchTerm(event.target.value);
+
+    const result = characters.filter((element) => {
+      return element.name.toLowerCase().includes(event.target.value.toLowerCase());
+    });
+    search(result);
+    console.log(result);
   }
 
-  const submitHandler = event => {
+  const handleSubmit = event => {
     event.preventDefault();
-
-    const result = props.characters.filter((element) => {
-      return element.name.toLowerCase().includes(searchTerm.toLowerCase());
-    });
-    props.search(result);
-    console.log(result);
-  };
+  }
 
   return (
     <section className="search-form">
-      <form onSubmit={submitHandler} className="d-flex justify-content-around">
+      <form className="d-flex justify-content-around" onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
           type="text"
@@ -33,23 +37,5 @@ function SearchForm(props) {
     </section >
   );
 }
-
-// const [searchTerm, setSearchTerm] = useState("");
-
-// const handleChange = event => {
-//   setSearchTerm(event.target.value);
-// }
-
-
-
-// useEffect(() => {
-//   const results = characters.filter((element) => {
-//     return (element.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
-//   });
-//   setCharacters(results)
-// }, [setCharacters, characters, searchTerm])
-
-
-// }
 
 export default SearchForm;
