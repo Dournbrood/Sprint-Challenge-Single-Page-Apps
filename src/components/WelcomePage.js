@@ -6,7 +6,8 @@ export default function WelcomePage() {
       <header>
         <h1>Welcome to the ultimate fan site!</h1>
         <img
-          className="main-img"
+          width="100%"
+          className="main-img my-5"
           src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
           alt="rick"
         />
