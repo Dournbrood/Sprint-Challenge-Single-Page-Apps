@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: Client-side routing makes it so that the user experience is not bogged down by watching the entire page reload every time the URL changes. Things like react-router enable clientside routing to dynamically display content without reloading the browser window.
 
 ## Project Set Up
 
